@@ -1,5 +1,16 @@
 <template name="products">
 	<div class="page-header">
-		<h1>Products</h1>
+		<h1>
+			<small><span class="label label-success">{{category}}</span> Products</small>
+		</h1>
 	</div>
+	{{#each productlist}}
+		{{>product}}
+		{{else}}
+			<div>
+				<h1>
+					<small>{{#if catnotselected}}Select a category{{else}}No products found{{/if}}</small>
+				</h1>
+			</div>
+		{{/each}}
 </template>
