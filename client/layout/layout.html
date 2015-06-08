@@ -1,16 +1,18 @@
 <template name="layout">
 	{{>navbar}}
+
+
 	<div class="container">
 		<div class="row">
-			<div class="span2">
-				<p>cell 1</p>
+			<div class="col-md-2">
+				{{>yield 'categories'}}
 			</div>
-			<div class="span7">
-				<p>cell 2</p>
+			<div class="col-md-7">
+				{{>yield 'products'}}
 			</div>
-			<div class="span3">
-				<p>cell 3</p>
+			<div class="col-md-3">
+				{{>yield 'cart'}}
 			</div>
-		</div>	
+		</div>
 	</div>
 </template>
