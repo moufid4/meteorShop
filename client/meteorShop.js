@@ -1,23 +1,21 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+Session.setDefault('category', null);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+Router.configure({
+  layoutTemplte: 'layout',
+  yieldTemplates:{
+    'products':{to:'products'},
+    'cart':{to:'cart'},
+    'categories':{to:'categories'}
+  }
+});
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+Router.map(function(){
+  this.route('/','layout');
+  this.route('/products', {
+    data:function(){
+      Session.set('category', this.params.name);
+    },
+    template:'layout',
+    path:'/:name'
+  })
+})
