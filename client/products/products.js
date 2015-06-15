@@ -5,4 +5,7 @@ Template.products.helpers({
 	'category':function(){
 		return Session.get('category');
 	},
+	'productlist':function(){
+		return Products.find({catName:Session.get('category')});
+	}
 });
