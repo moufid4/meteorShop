@@ -8,6 +8,8 @@ Meteor.startup(function(){
 		var juid = Categories.insert({name:'Juice'});
 
 		SubCategories.insert({name:'Mods',cat:hwid});
+		SubCategories.insert({name:'Moufid',cat:hwid});
+		
 		SubCategories.insert({name:'Fruity', cat:juid});
 		SubCategories.insert({name:'Sweet', cat:juid});
 	}
