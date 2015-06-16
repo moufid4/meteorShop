@@ -18,6 +18,9 @@
 <template name="product">
 	<div class="container">
 			<img class="thumbnail" src="/{{thumb}}">
-			<p>{{name}}</p>
+			<span><strong>{{name}}</strong></span>
+			<li><span>{{desc}}</span></li>
+			<li><span>{{price}}$</span></li>
+			<input placeholder="Qty" class="input input-mini prodqty" value="0"/><a class="btn btn-mini addcart" href="#">Add to cart</a>
 	</div>
 </template>
