@@ -7,5 +7,6 @@ Template.products.helpers({
 	},
 	'productlist':function(){
 		return Products.find({catName:Session.get('category')});
-	}
+	},
 });
+

@@ -3,5 +3,22 @@
 		<h1>
 			<small>Cart</small>
 		</h1>
+		
 	</div>	
+	<table class="table">
+ 		<thead>
+	 		<th>Qty</th>
+	 		<th>Product</th>
+	 		<th>Price</th>
+	 		<th></th>
+ 		</thead>
+ 		<tbody>
+ 			{{#each cartitems}}
+ 			<td>{{qty}}</td>
+ 			<td>{{productname}}</td>
+ 			<td>{{price}}</td>
+ 			<td><span class="label label-danger">X</span></td>
+ 			{{/each}}
+ 		</tbody>
+	</table>
 </template>
