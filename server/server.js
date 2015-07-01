@@ -28,7 +28,9 @@ Meteor.methods({
 			CartItems.insert({qty:qty, product:product, sessid:session})
 		} else {
 			console.log('please chose a quantity.')
-		};
-
+		}
+	},
+	removeCartItem: function(id) {
+		CartItems.remove({_id:id});
 	}
 });

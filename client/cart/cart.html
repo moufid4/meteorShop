@@ -11,14 +11,14 @@
 	 		<th>Product</th>
 	 		<th>Price</th>
 	 		<th></th>
- 		</thead>
+ 		</thead>{{#each cartitems}}
  		<tbody>
- 			{{#each cartitems}}
+ 			
  			<td>{{qty}}</td>
  			<td>{{productname}}</td>
  			<td>{{price}}</td>
- 			<td><span class="label label-danger">X</span></td>
- 			{{/each}}
- 		</tbody>
+ 			<td><span class="label label-danger removeci">X</span></td>
+ 			
+ 		</tbody>{{/each}}
 	</table>
 </template>
