@@ -1,26 +1,27 @@
 <template name="products">
-	<div class="page-header">
-		<h1>
-			<small><span class="label label-success">{{category}}</span> Products</small>
-		</h1>
-	</div>
-	{{#each productlist}}
-		{{>product}}
-		{{else}}
-			<div>
-				<h1>
-					<small>{{#if catnotselected}}Select a category{{else}}No products found{{/if}}</small>
-				</h1>
-			</div>
-		{{/each}}
+    <div class="page-header">
+        <h1>
+            <span class="label-important label">{{category}}</span> <small>Products </small>
+        </h1>
+    </div>
+    {{#each productlist}}
+        {{>product}}
+    {{else}}
+    <div class="page-header">
+        <h1>
+            <small>{{#if catnotselected}}Select a Category{{else}}No Products Found{{/if}}</small>
+        </h1>
+    </div>
+    {{/each}}
 </template>
-
 <template name="product">
-	<div class="container">
-			<img class="thumbnail" src="/{{thumb}}">
-			<span><strong>{{name}}</strong></span>
-			<li><span>{{desc}}</span></li>
-			<li><span>{{currency price}}</span></li>
-			<input placeholder="Qty" class="input input-mini prodqty" value="0"/><a class="btn btn-mini addcart" href="#">Add to cart</a>
-	</div>
+    <div class="well span3">
+        <ul id="{{_id}}" class="nav nav-list ">
+            <li class="thumbnail"><img  style="height:90px;width:auto"  src="/{{thumb}}"/></li>
+            <li><strong>{{name}}</strong></li>
+            <li>{{desc}}</li>
+            <li><strong>{{currency price}}</strong></li>
+            <input placeholder="Qty" class="input input-mini prodqty" value="0"/><a class="btn btn-success btn-mini addcart" href="#">Add</a>
+        </ul>
+    </div>
 </template>

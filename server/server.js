@@ -22,5 +22,13 @@ Meteor.methods({
 		Categories.remove({});
 		SubCategories.remove({});
 		CartItems.remove({});
+	},
+	addToCart:function(qty, product, session) {
+		if (qty > 0) {
+			CartItems.insert({qty:qty, product:product, sessid:session})
+		} else {
+			console.log('please chose a quantity.')
+		};
+
 	}
-})
+});
