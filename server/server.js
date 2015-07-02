@@ -28,7 +28,7 @@ Meteor.methods({
      	var car = CartItems.findOne({product:product});
      	console.log(car);
      	if (!car) {
-				CartItems.insert({qty:qty, product:product, sessid:session});     			
+				CartItems.insert({qty:parseInt(qty), product:product, sessid:session});     			
      		} else {
      			totalQty = parseInt(qty) + parseInt(car.qty);
 				CartItems.update(car, {$set: {qty: totalQty}});     			
@@ -36,6 +36,10 @@ Meteor.methods({
 		},
 	removeCartItem: function(id) {
 		CartItems.remove({_id:id});
+	},
+
+	reset: function(){
+		CartItems.remove({});
 	}
 });
 
