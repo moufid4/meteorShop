@@ -16,5 +16,8 @@ Template.product.events({
         var product = this._id;
         var sessid = Meteor.default_connection._lastSessionId;
         Meteor.call('addToCart',qty,product,sessid);
+
+
+
     }
 });

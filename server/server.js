@@ -24,13 +24,18 @@ Meteor.methods({
 		CartItems.remove({});
 	},
 	addToCart:function(qty, product, session) {
-		if (qty > 0) {
-			CartItems.insert({qty:qty, product:product, sessid:session})
-		} else {
-			console.log('please chose a quantity.')
-		}
-	},
+		 //ds
+     	var car = CartItems.findOne({product:product});
+     	console.log(car);
+     	if (!car) {
+				CartItems.insert({qty:qty, product:product, sessid:session});     			
+     		} else {
+     			totalQty = parseInt(qty) + parseInt(car.qty);
+				CartItems.update(car, {$set: {qty: totalQty}});     			
+     		}
+		},
 	removeCartItem: function(id) {
 		CartItems.remove({_id:id});
 	}
 });
+
